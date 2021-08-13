@@ -8,6 +8,11 @@ namespace CircularDependency.Controllers
 {
     public class HomeController : Controller
     {
+        private Dependencies _restaurant;
+        public HomeController(Dependencies restaurant)
+        {
+            _restaurant = restaurant;
+        }
         public ActionResult Index()
         {
             return View();
