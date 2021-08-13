@@ -19,7 +19,9 @@ namespace CircularDependency
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             var Builder = new ContainerBuilder();
-            Builder.RegisterType<Restaurant>().As<Dependencies>().SingleInstance();
+            Builder.RegisterType<Dependencies >().As<IDependencies>().SingleInstance();
+            Builder.RegisterType<Home>().As<IHome>();
+            Builder.RegisterType<Vechile>().As<IVechile>();
             Builder.RegisterControllers(typeof(MvcApplication).Assembly);
             var container = Builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

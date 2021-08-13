@@ -8,10 +8,10 @@ namespace CircularDependency.Controllers
 {
     public class HomeController : Controller
     {
-        private Dependencies _restaurant;
-        public HomeController(Dependencies restaurant)
+        private IDependencies _dependencies;
+        public HomeController(IDependencies dependencies)
         {
-            _restaurant = restaurant;
+            _dependencies = dependencies;
         }
         public ActionResult Index()
         {
